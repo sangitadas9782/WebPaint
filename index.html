@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Paint</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="icon.ico">
+</head>
+<body>
+  <div class="screen">
+    <div class="workspace">
+      <div class="tool-bar">
+        <div class="options-bar">
+          <div class="main-options">
+            <div class="option option-brush selected" onclick="changeTool(TOOLS.BRUSH);">
+              <img src="icons/brush.svg" alt="brush" />
+            </div>
+            <div class="option option-highlighter" onclick="changeTool(TOOLS.HIGHLIGHTER);">
+              <img src="icons/highlighter.svg" alt="highlighter" />
+            </div>
+            <div class="option option-eraser" onclick="changeTool(TOOLS.ERASER);">
+              <img src="icons/eraser.svg" alt="eraser" />
+            </div>
+            <div class="option option-line" onclick="changeTool(TOOLS.LINE);">
+              <img src="icons/line.svg" alt="line" />
+            </div>
+            <div class="option option-square" onclick="changeTool(TOOLS.SQUARE);">
+              <img src="icons/square.svg" alt="square" />
+            </div>
+            <div class="option option-circle" onclick="changeTool(TOOLS.CIRCLE);">
+              <img src="icons/circle.svg" alt="circle" />
+            </div>
+            <div class="option option-fill" onclick="changeTool(TOOLS.FILL);">
+              <img src="icons/fill.svg" alt="fill" />
+            </div>
+          </div>
+          <div class="other-options">
+            <div class="option option-nohighlight option-undo" onclick="undo();">
+              <img src="icons/undo.svg" alt="undo" />
+            </div>
+            <div class="option option-nohighlight option-redo" onclick="redo();">
+              <img src="icons/redo.svg" alt="redo" />
+            </div>
+            <div class="option option-nohighlight option-download" onclick="saveImage();">
+              <img src="icons/download.svg" alt="download" />
+            </div>
+            <div class="option option-nohighlight option-upload" onclick="loadImage();">
+              <img src="icons/upload.svg" alt="upload" />
+            </div>
+            <div class="option option-nohighlight option-clear" onclick="clearCanvas();">
+              <img src="icons/clear.svg" alt="clear" />
+            </div>
+          </div>
+        </div>
+        <div class="settings-bar">
+          <div class="setting setting-color">
+            <input id="color-input" type="color" />
+          </div>
+          <div class="setting setting-size">
+            <span>Brush size</span>
+            <input id="size-input" type="range" value="20" min="1" max="80" />
+          </div>
+          <div class="setting setting-stroke">
+            <span>Stroke</span>
+            <input id="stroke-input" type="checkbox" />
+          </div>
+        </div>
+      </div>
+      <div class="canvas">
+        <canvas id="canvas"></canvas>
+        <canvas id="canvas-mask"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
